@@ -7,6 +7,7 @@ public class Clase2 : MonoBehaviour
     public int edad;
     public bool trabajo;
     public int euros;
+    
     void Start()
     {
         if (edad >= 18)
