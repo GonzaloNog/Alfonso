@@ -11,10 +11,18 @@ public class Clase2 : MonoBehaviour
     {
         if (edad >= 18)
         {
-
+            if (trabajo == true)
+            {
+                if (euros >= 1000)
+                    Debug.Log("Cuenta abierta");
+                else
+                    Debug.Log("No tienes dinero suficiente, Necesitas: "+(1000 -euros)+" mas");
+            }
+            else
+                Debug.Log("Necesitas tener un trabajo");
         }
         else
-            Debug.Log("Tenes que ser mayor de edad");
+            Debug.Log("No tienes la edad suficiente, Necesitas: "+(18 -edad)+" años mas");
     }
 
     // Update is called once per frame
