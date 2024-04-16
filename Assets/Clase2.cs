@@ -5,12 +5,16 @@ using UnityEngine;
 public class Clase2 : MonoBehaviour
 {
     public int edad;
+    public bool trabajo;
+    public int euros;
     void Start()
     {
         if (edad >= 18)
-            Debug.Log("Es mayor de edad");
+        {
+
+        }
         else
-            Debug.Log("Es menor de edad");
+            Debug.Log("Tenes que ser mayor de edad");
     }
 
     // Update is called once per frame
