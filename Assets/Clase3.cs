@@ -14,6 +14,8 @@ public class Clase3 : MonoBehaviour
     public TextMeshProUGUI documentoTexto;
     public TextMeshProUGUI dineroTexto;
     public TextMeshProUGUI tragoTexto;
+
+    //Poner el color del trago en rojo si tengo menos dinero de lo que cuesta y en verde si tengo mas dinero de lo que cuesta
     void Start()
     {
         tragoTexto.text = trago.ToString();
