@@ -15,15 +15,10 @@ public class Clase2Ej2 : MonoBehaviour
     {
         if (edad >= 18 && documento == true)
         {
-            if (trago == true)
-            {
-                if () >= 1000)
-                    Debug.Log("Cuenta abierta");
-                else
-                    Debug.Log("No tienes dinero suficiente, Necesitas: " + (1000 - euros) + " mas");
-            }
+            if (dinero >= trago)
+                Debug.Log("Has entrado en la discoteca y puedes tomarte un trago");
             else
-                Debug.Log("No puedes tomarte un trago");
+                Debug.Log("Has entrado en la discoteca pero no puedes tomarte un trago");
         }
         else
             Debug.Log("No puedes entrar!");

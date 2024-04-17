@@ -512,6 +512,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d3e5590579adf94a94565580261e610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  edad: 18
+  documento: 1
+  dinero: 50
+  trago: 8
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
