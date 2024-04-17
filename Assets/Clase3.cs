@@ -22,10 +22,7 @@ public class Clase3 : MonoBehaviour
             documentoTexto.text = "Si";
         else
             documentoTexto.text = "No";
-    }
-    
-    void Update()
-    {
-        
+
+        tragoTexto.color = Color.red;
     }
 }
