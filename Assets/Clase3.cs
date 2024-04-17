@@ -12,11 +12,17 @@ public class Clase3 : MonoBehaviour
     public int trago = 8;
     //Variables de UI
     public TextMeshProUGUI documentoTexto;
+    public TextMeshProUGUI dineroTexto;
+    public TextMeshProUGUI tragoTexto;
     void Start()
     {
-        //documentoTexto.text = ;
+        tragoTexto.text = trago.ToString();
+        dineroTexto.text = dinero.ToString();
+        if (documento == true)
+            documentoTexto.text = "Si";
+        else
+            documentoTexto.text = "No";
     }
-
     
     void Update()
     {
