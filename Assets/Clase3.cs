@@ -24,7 +24,9 @@ public class Clase3 : MonoBehaviour
             documentoTexto.text = "Si";
         else
             documentoTexto.text = "No";
-
+        if (dinero >= trago)
+        tragoTexto.color = Color.green;
+        else
         tragoTexto.color = Color.red;
     }
 }
