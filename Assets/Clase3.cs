@@ -11,15 +11,21 @@ public class Clase3 : MonoBehaviour
     public int dinero;
     public int trago = 8;
     private int tragosTomadosNumero = 0;
+
+    private bool borracho = false;
+    private int resitenciaAlchol;
     //Variables de UI
     public TextMeshProUGUI documentoTexto;
     public TextMeshProUGUI dineroTexto;
     public TextMeshProUGUI tragoTexto;
     public TextMeshProUGUI tragoTomados;
 
-    //Poner el color del trago en rojo si tengo menos dinero de lo que cuesta y en verde si tengo mas dinero de lo que cuesta
+   // paso 1, funcion que mire si ya superaste tur esistencia a los tragos y en caso de superarla cambiar la variable borracho a True
+   // paso 2, No vas a pode pedir mas dinero prestado
+   // paso 3, Texto de estado
     void Start()
     {
+        resitenciaAlchol = Random.Range(1, 101);
         tragoTomados.text = tragosTomadosNumero.ToString();
         dineroTexto.text = dinero.ToString();
         tragoTexto.text = trago.ToString();
@@ -34,12 +40,10 @@ public class Clase3 : MonoBehaviour
         {
             dinero -= trago;
             tragosTomadosNumero++;
-            tragoTexto.color = Color.green;
             tragoTomados.text = tragosTomadosNumero.ToString();
             dineroTexto.text = dinero.ToString();
         }
-        else
-            tragoTexto.color = Color.red;
+        ColorUpdate();
     }
     public void Prestamo()
     {
@@ -50,6 +54,13 @@ public class Clase3 : MonoBehaviour
         }
         else
             Debug.Log("Tienes dinero de sobra");
+    }
+    public void ColorUpdate()
+    {
+        if (dinero >= trago)
+            tragoTexto.color = Color.green;
+        else
+            tragoTexto.color = Color.red;
     }
 }
 
