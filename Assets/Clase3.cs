@@ -12,23 +12,30 @@ public class Clase3 : MonoBehaviour
     public int trago = 8;
     private int tragosTomadosNumero = 0;
 
-    private bool borracho = false;
-    private int resitenciaAlchol;
+    private bool borracho;
+    private int resitenciaAlcohol;
+    private int MaximoAlcohol = 50;
     //Variables de UI
     public TextMeshProUGUI documentoTexto;
+    public TextMeshProUGUI borrachoTexto;
     public TextMeshProUGUI dineroTexto;
     public TextMeshProUGUI tragoTexto;
     public TextMeshProUGUI tragoTomados;
 
-   // paso 1, funcion que mire si ya superaste tur esistencia a los tragos y en caso de superarla cambiar la variable borracho a True
+   // paso 1, funcion que mire si ya superaste tu resistencia a los tragos y en caso de superarla cambiar la variable borracho a True
    // paso 2, No vas a pode pedir mas dinero prestado
    // paso 3, Texto de estado
     void Start()
     {
-        resitenciaAlchol = Random.Range(1, 101);
+        resitenciaAlcohol = Random.Range(1, 101);
+        Debug.Log(resitenciaAlcohol);
         tragoTomados.text = tragosTomadosNumero.ToString();
         dineroTexto.text = dinero.ToString();
         tragoTexto.text = trago.ToString();
+        if (borracho == false)
+            borrachoTexto.text = "No estas borracho";
+        else
+            borrachoTexto.text = "Estas borracho";
         if (documento == true)
             documentoTexto.text = "Si";
         else
@@ -40,6 +47,7 @@ public class Clase3 : MonoBehaviour
         {
             dinero -= trago;
             tragosTomadosNumero++;
+            resitenciaAlcohol++;
             tragoTomados.text = tragosTomadosNumero.ToString();
             dineroTexto.text = dinero.ToString();
         }
@@ -47,13 +55,24 @@ public class Clase3 : MonoBehaviour
     }
     public void Prestamo()
     {
-        if (dinero < trago)
+        if (borracho == false)
         {
-            dinero += 100;
-            dineroTexto.text = dinero.ToString();
+            borrachoTexto.text = "No estas borracho";
+
+            if (dinero < trago)
+            {
+                dinero += 100;
+                dineroTexto.text = dinero.ToString();
+            }
+            else
+            {
+                Debug.Log("Tienes dinero de sobra");
+            }
         }
         else
-            Debug.Log("Tienes dinero de sobra");
+        {
+            Debug.Log("Estas borracho, no pienso prestarte dinero");
+        }
     }
     public void ColorUpdate()
     {
@@ -61,6 +80,13 @@ public class Clase3 : MonoBehaviour
             tragoTexto.color = Color.green;
         else
             tragoTexto.color = Color.red;
+    }
+    public void EstasBorracho()
+    {
+        if (resitenciaAlcohol >= MaximoAlcohol)
+            borracho = true;
+        borrachoTexto.text = "Estas borracho";
+ 
     }
 }
 
