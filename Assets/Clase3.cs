@@ -14,32 +14,28 @@ public class Clase3 : MonoBehaviour
 
     private bool borracho;
     private int resitenciaAlcohol;
-    private int MaximoAlcohol = 50;
     //Variables de UI
     public TextMeshProUGUI documentoTexto;
-    public TextMeshProUGUI borrachoTexto;
     public TextMeshProUGUI dineroTexto;
     public TextMeshProUGUI tragoTexto;
     public TextMeshProUGUI tragoTomados;
+    public TextMeshProUGUI estado;
 
    // paso 1, funcion que mire si ya superaste tu resistencia a los tragos y en caso de superarla cambiar la variable borracho a True
    // paso 2, No vas a pode pedir mas dinero prestado
    // paso 3, Texto de estado
     void Start()
     {
-        resitenciaAlcohol = Random.Range(1, 101);
+        resitenciaAlcohol = Random.Range(1, 11);
         Debug.Log(resitenciaAlcohol);
         tragoTomados.text = tragosTomadosNumero.ToString();
         dineroTexto.text = dinero.ToString();
         tragoTexto.text = trago.ToString();
-        if (borracho == false)
-            borrachoTexto.text = "No estas borracho";
-        else
-            borrachoTexto.text = "Estas borracho";
         if (documento == true)
             documentoTexto.text = "Si";
         else
             documentoTexto.text = "No";
+        estado.text = "sobrio";
     }
     public void comprarTrago()
     {
@@ -47,17 +43,16 @@ public class Clase3 : MonoBehaviour
         {
             dinero -= trago;
             tragosTomadosNumero++;
-            resitenciaAlcohol++;
             tragoTomados.text = tragosTomadosNumero.ToString();
             dineroTexto.text = dinero.ToString();
         }
         ColorUpdate();
+        EstasBorracho();
     }
     public void Prestamo()
     {
         if (borracho == false)
         {
-            borrachoTexto.text = "No estas borracho";
 
             if (dinero < trago)
             {
@@ -83,10 +78,13 @@ public class Clase3 : MonoBehaviour
     }
     public void EstasBorracho()
     {
-        if (resitenciaAlcohol >= MaximoAlcohol)
+        Debug.Log("funcion" + tragosTomadosNumero + "..." + resitenciaAlcohol);
+        if(tragosTomadosNumero > resitenciaAlcohol)
+        {
+            Debug.Log("Entro");
             borracho = true;
-        borrachoTexto.text = "Estas borracho";
- 
+            estado.text = "borracho";
+        }
     }
 }
 
