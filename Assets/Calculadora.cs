@@ -5,24 +5,24 @@ using UnityEngine;
 
 public class Calculadora : MonoBehaviour
 {
-    private float num1;
-    private float num2;
+    private string num1;
+    private string num2;
     private string Operacion;
     private bool OperacionIniciada = false;
 
     public TextMeshProUGUI ResultadoTexto;
 
     
-    public void apretarBoton(float numero)
+    public void apretarBoton(string numero)
     {
         if(OperacionIniciada == true)
         {
-            num2 = numero;
+            num2 += numero;
             ResultadoTexto.text = num2.ToString();
         }
         else
         {
-            num1 = numero;
+            num1 += numero;
             ResultadoTexto.text = num1.ToString();
         }
     }
@@ -37,22 +37,27 @@ public class Calculadora : MonoBehaviour
         switch(Operacion)
         {
             case "+":
-                ResultadoTexto.text = (num1 + num2).ToString();
-                OperacionIniciada = false;
+                ResultadoTexto.text = (float.Parse(num1) + float.Parse(num2)).ToString();
                 break;
             case "-":
-                ResultadoTexto.text = (num1 - num2).ToString();
-                OperacionIniciada = false;
+                ResultadoTexto.text = (float.Parse(num1) - float.Parse(num2)).ToString();
                 break;
             case "*":
-                ResultadoTexto.text = (num1 * num2).ToString();
-                OperacionIniciada = false; 
+                ResultadoTexto.text = (float.Parse(num1) * float.Parse(num2)).ToString(); 
                 break;
             case "/":
-                ResultadoTexto.text = (num1 / num2).ToString();
-                OperacionIniciada = false;
+                ResultadoTexto.text = (float.Parse(num1) / float.Parse(num2)).ToString();
                 break;
         }
+        num1 = "";
+        num2 = "";
+        OperacionIniciada = false;
+    }
+    public void ResetCalculadora()
+    {
+        num1 = "";
+        num2 = "";
+        OperacionIniciada = false;
     }
 
 }
