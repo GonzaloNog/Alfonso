@@ -7,6 +7,8 @@ public class Calculadora : MonoBehaviour
 {
     private string num1;
     private string num2;
+    private List<string> list;
+    private List<string> operadores;
     private string Operacion;
     private bool OperacionIniciada = false;
 
