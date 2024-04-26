@@ -5,17 +5,17 @@ using UnityEngine;
 
 public class Calculadora : MonoBehaviour
 {
-    private int num1;
-    private int num2;
+    private float num1;
+    private float num2;
     private string Operacion;
-    private bool OpereacionIniciada = false;
+    private bool OperacionIniciada = false;
 
     public TextMeshProUGUI ResultadoTexto;
 
     
-    public void apretarBoton(int numero)
+    public void apretarBoton(float numero)
     {
-        if(OpereacionIniciada == true)
+        if(OperacionIniciada == true)
         {
             num2 = numero;
             ResultadoTexto.text = num2.ToString();
@@ -28,7 +28,7 @@ public class Calculadora : MonoBehaviour
     }
     public void operacionFuncion(string _operacion)
     {
-        OpereacionIniciada = true;
+        OperacionIniciada = true;
         Operacion = _operacion;
         ResultadoTexto.text = Operacion;
     }
@@ -38,7 +38,19 @@ public class Calculadora : MonoBehaviour
         {
             case "+":
                 ResultadoTexto.text = (num1 + num2).ToString();
-                OpereacionIniciada = false;
+                OperacionIniciada = false;
+                break;
+            case "-":
+                ResultadoTexto.text = (num1 - num2).ToString();
+                OperacionIniciada = false;
+                break;
+            case "*":
+                ResultadoTexto.text = (num1 * num2).ToString();
+                OperacionIniciada = false; 
+                break;
+            case "/":
+                ResultadoTexto.text = (num1 / num2).ToString();
+                OperacionIniciada = false;
                 break;
         }
     }
