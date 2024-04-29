@@ -6,6 +6,8 @@ public class PracticaListas : MonoBehaviour
 {
     public List<int> listInt;
     public List<string> listString;
+    public List<float> listFloat;
+    public List<bool> listBool;
 
     //List string
     //List bool
@@ -15,7 +17,7 @@ public class PracticaListas : MonoBehaviour
         //Listenteros();
         ListaStrings();
     }
-    public void Listenteros()
+    public void ListEnteros()
     {
         listInt = new List<int>();
         listInt.Add(10);
@@ -31,6 +33,27 @@ public class PracticaListas : MonoBehaviour
     }
     public void ListaStrings()
     {
-
+        listString = new List<string>();
+        listString.Add("a");
+        listString.Add("b");
+        listString.Add("c");
+        listString.Add("d");
     }
+
+    public void ListaFloat()
+    {
+        listFloat = new List<float>();
+        listFloat.Add(1.1F);
+        listFloat.Add(1.2F);
+        listFloat.Add(1.3F);
+        listFloat.Add(1.4F);
+    }
+    public void ListaBoolean()
+    {
+        listBool = new List<bool>();
+        listBool.Add(true);
+        listBool.Add(false);
+    }
+    
+    
 }
