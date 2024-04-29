@@ -3,35 +3,36 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class Calculadora : MonoBehaviour
+public class CalculadoraOld : MonoBehaviour
 {
     private string num1;
     private string num2;
-    private List<string> listNumeros;
+    private List<string> list;
     private List<string> operadores;
     private string Operacion;
+    private bool OperacionIniciada = false;
 
     public TextMeshProUGUI ResultadoTexto;
 
-    private void Start()
-    {
-        listNumeros = new List<string>();
-        operadores = new List<string>();
-    }
+    
     public void apretarBoton(string numero)
     {
-        if(listNumeros.Count == (operadores.Count + 1) || listNumeros.Count == 0)
+        if(OperacionIniciada == true)
         {
-            listNumeros.Add(numero);
+            num2 += numero;
+            ResultadoTexto.text = num2.ToString();
+        }
+        else
+        {
+            num1 += numero;
+            ResultadoTexto.text = num1.ToString();
         }
     }
     public void operacionFuncion(string _operacion)
     {
-        if (listNumeros.Count > operadores.Count)
-        {
-            operadores.Add(_operacion);
-            ResultadoTexto.text = _operacion;
-        }
+        OperacionIniciada = true;
+        Operacion = _operacion;
+        ResultadoTexto.text = Operacion;
     }
     public void mostrarResultado()
     {
@@ -52,11 +53,13 @@ public class Calculadora : MonoBehaviour
         }
         num1 = "";
         num2 = "";
+        OperacionIniciada = false;
     }
     public void ResetCalculadora()
     {
         num1 = "";
         num2 = "";
+        OperacionIniciada = false;
     }
 
 }

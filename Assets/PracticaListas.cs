@@ -9,13 +9,14 @@ public class PracticaListas : MonoBehaviour
     public List<float> listFloat;
     public List<bool> listBool;
 
+    public bool casa = false;
     //List string
     //List bool
     //List float
     void Start()
     {
         //Listenteros();
-        ListaStrings();
+        ListEnteros();
     }
     public void ListEnteros()
     {
@@ -25,12 +26,15 @@ public class PracticaListas : MonoBehaviour
         listInt.Add(30);
         listInt.Add(40);
 
+        listInt.Remove(20);
+
         foreach (int num in listInt)
         {
             Debug.Log(num);
         }
         Debug.Log(listInt[1]);
     }
+    /*
     public void ListaStrings()
     {
         listString = new List<string>();
@@ -53,7 +57,8 @@ public class PracticaListas : MonoBehaviour
         listBool = new List<bool>();
         listBool.Add(true);
         listBool.Add(false);
-    }
+        listBool.Add(false);
+    }*/
     
     
 }
