@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class ColasArray : MonoBehaviour
 {
-    // Start is called before the first frame update
     void Start()
     {
-        
-    }
+        Stack<int> originalStack = new Stack<int>();
+        originalStack.Push(4);
+        originalStack.Push(-5);
+        originalStack.Push(-10);
+        originalStack.Push(88);
+        originalStack.Push(2);
 
-    // Update is called once per frame
-    void Update()
-    {
+        Stack<int> stack1 = new Stack<int>();
+        Stack<int> stack2 = new Stack<int>();
+
         
+        while (originalStack.Count > 0)
+        {
+            stack1.Push(originalStack.Pop());
+        }
+
+       
     }
 }
