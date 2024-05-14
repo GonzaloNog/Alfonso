@@ -51,6 +51,27 @@ public class Moto : Transporte
         Debug.Log("Esto es una moto");
     }
 }
+public class Avion : Transporte
+ {
+        private int altura;
+        public Avion(int _maxSpeed, bool _publico, int _capacidad, int _altura) : base(_maxSpeed, _publico, _capacidad)
+        {
+            altura = _altura;
+        }
+    public void setaltura(int _altura)
+    {
+        altura = _altura;
+    }
+    public int getaltura()
+    {
+        return altura;
+    }
+    public override void Arrancar()
+    {
+        Debug.Log("Esto es un avion");
+    }
+}
+
 
 
 
