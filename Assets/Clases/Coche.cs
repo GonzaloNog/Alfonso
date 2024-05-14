@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[System.Serializable]
 public class Coche : Transporte
 {
     private string marca;
@@ -20,19 +20,15 @@ public class Coche : Transporte
         return marca;
     }
 
-    public override void ArrancarCoche()
+    public override void Arrancar()
     {
         Debug.Log("Esto es un coche");
     }
 
-    public override void ArrancarMoto()
-    {
-        throw new System.NotImplementedException();
-    }
 
     // Hazme 2 clases nuevas que hereden de transporte en cada una de estas hay que crearla una variable especifica de cada clase con set y getters
 }
-
+[System.Serializable]
 public class Moto : Transporte
 {
     private string color;
@@ -50,15 +46,9 @@ public class Moto : Transporte
         return color;
     }
 
-    public override void ArrancarMoto()
-
+    public override void Arrancar()
     {
         Debug.Log("Esto es una moto");
-    }
-
-    public override void ArrancarCoche()
-    {
-        throw new System.NotImplementedException();
     }
 }
 

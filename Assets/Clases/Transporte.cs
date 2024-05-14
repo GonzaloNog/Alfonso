@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[System.Serializable]
 public abstract class Transporte 
 {
     protected int maxSpeed;
@@ -50,7 +50,6 @@ public abstract class Transporte
         return capacidad;
     }
 
-    public abstract void ArrancarCoche();
-    public abstract void ArrancarMoto();
+    public abstract void Arrancar();
 
 }
