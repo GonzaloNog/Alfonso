@@ -50,4 +50,7 @@ public abstract class Transporte
         return capacidad;
     }
 
+    public abstract void ArrancarCoche();
+    public abstract void ArrancarMoto();
+
 }
