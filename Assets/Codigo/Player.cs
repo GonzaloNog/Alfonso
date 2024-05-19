@@ -8,19 +8,15 @@ public class Player : MonoBehaviour
     public float velocidad = 5f;
     private Vector2 direccionMirada = Vector2.right;
 
-    private void Start()
-    {
-        GameManager.Instance.newDisparoType("fire");
-    }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))//tecla space para disparar
         {
             Disparar();
         }
-        float movimientoHorizontal = Input.GetAxis("Horizontal");
+        float movimientoHorizontal = Input.GetAxis("Horizontal");//verificamos la entrada de teclado horizontal
 
         if (movimientoHorizontal != 0)
         {
@@ -36,15 +32,19 @@ public class Player : MonoBehaviour
             transform.localScale = escala;
         }
     }
-    public Vector2 ObtenerDireccionMirada()
+    public Vector2 ObtenerDireccionMirada()//lo usamos para saber en que direccion miramos para los nuevos disparos
     {
         return direccionMirada;
     }
     public void Disparar()
     {
-        Vector2 direccionDisparo = ObtenerDireccionMirada();
-        GameObject proyectil = Instantiate(prefad, transform.position, Quaternion.identity);
-        Bullet scriptProyectil = proyectil.GetComponent<Bullet>();
-        scriptProyectil.direccion = direccionDisparo;
+        if(GameManager.Instance.disparoList.Count != 0)//verificamos que nos quedan balas disponibles
+        {
+            Vector2 direccionDisparo = ObtenerDireccionMirada();//obtenemos direccion de disparo
+            GameObject proyectil = Instantiate(prefad, transform.position, Quaternion.identity);//creamos nueva bala
+            Bullet scriptProyectil = proyectil.GetComponent<Bullet>();//entramos al codigo de la bala
+            scriptProyectil.direccion = direccionDisparo;//asignamos al direccion
+        }
+
     }
 }

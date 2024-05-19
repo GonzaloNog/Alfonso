@@ -5,16 +5,16 @@ using UnityEngine;
 public abstract class Disparo 
 {
     private int damage;
-    private Sprite sprit;
+    private Color col;
 
-    public Disparo(Sprite _sprite)
+    public Disparo(Color _col)
     {
-        sprit = _sprite;
+        col = _col;
     }
 
-    public Sprite getSprite()
+    public Color getColor()
     {
-        return sprit;
+        return col;
     }
     public int getDamage()
     {
